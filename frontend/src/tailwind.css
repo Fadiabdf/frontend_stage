@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ellipse {
+    @apply absolute bottom-20 right-8;
+    width: 1400px;
+    height: 1000px;
+    background-color: #2180DE; 
+    border-radius: 60%;
+    transform: translate(-50%, -50%);
+    transform: rotate(18deg);
+  }
+  .search-bar {
+    @apply w-[70vw] h-[7vh] bg-[#FBFBF3] rounded-[70px] border-2 border-black;
+  }
+  .bar {
+    @apply w-[0.2vw] h-[5vh] bg-[#000000] rounded-[100px];
+  }
+  .boutton{
+    @apply absolute h-10 right-4 top-1/2 transform 
+    -translate-y-1/2 bg-transparent text-black py-2 px-4 
+    rounded-[80px] border-2 border-black hover:bg-[#80D4FF] hover:text-[#FBFBF3] 
+    transition-colors duration-300 flex items-center justify-center text-sm
+  }
+  .video-result {
+    @apply border-2 border-black p-4 mb-4;
+  }
+  .resultats-cadre {
+    @apply w-[94vw] h-auto rounded-[20px] border-2 border-[#2180DE] p-3 hover:bg-[#80D4FF] ;
+
+  }

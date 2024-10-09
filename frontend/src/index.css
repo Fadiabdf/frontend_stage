@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @font-face {
+    font-family: 'OPTIAuvantGothic';
+    src: url('@/assets/fonts/OPTIAuvantGothic-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'OPTIAuvantGothic', sans-serif;
+  }
+   */

@@ -140,7 +140,8 @@ export default {
       this.dropdownIndex = this.dropdownIndex === id ? null : id;
     },
     fetchCategories() {
-      fetch('http://127.0.0.1:8000/validation/categories/')
+      const apiUrl = process.env.VUE_APP_API_URL;
+      fetch(`${apiUrl}/validation/categories/`)
         .then(response => response.json())
         .then(data => {
           console.log("Fetched categories data:", data);
@@ -150,7 +151,8 @@ export default {
         .catch(error => console.error('Error fetching categories:', error));
     },
     fetchEmotions() {
-      fetch('http://127.0.0.1:8000/validation/emotions/')
+      const apiUrl = process.env.VUE_APP_API_URL;
+      fetch('/validation/emotions/')
         .then(response => response.json())
         .then(data => {
           console.log("Fetched emotions data:", data);
@@ -175,7 +177,8 @@ export default {
       this.showCategoryModal = true;
     },
     saveCategory() {
-      fetch('http://127.0.0.1:8000/validation/categories/', {
+      const apiUrl = process.env.VUE_APP_API_URL;
+      fetch('https://a549-105-98-255-53.ngrok-free.app/validation/categories/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: this.newCategory.name, multiple_choice: this.newCategory.multiple_choice })
@@ -189,7 +192,8 @@ export default {
     },
     deleteCategory(categoryId) {
       if (confirm('Are you sure you want to delete this category?')) {
-        fetch(`http://127.0.0.1:8000/validation/categories/${categoryId}/`, {
+        const apiUrl = process.env.VUE_APP_API_URL;
+        fetch(`https://a549-105-98-255-53.ngrok-free.app/validation/categories/${categoryId}/`, {
           method: 'DELETE',
         })
         .then(response => {
@@ -206,7 +210,8 @@ export default {
     },
     deleteEmotion(emotionId) {
   if (confirm('Are you sure you want to delete this emotion?')) {
-    fetch(`http://127.0.0.1:8000/validation/emotions/${emotionId}/`, {
+    const apiUrl = process.env.VUE_APP_API_URL;
+    fetch(`${apiUrl}/validation/emotions/${emotionId}/`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     })
@@ -224,9 +229,10 @@ export default {
 }
 ,
     saveEmotion() {
+      const apiUrl = process.env.VUE_APP_API_URL;
       const url = this.newEmotion.id 
-        ? `http://127.0.0.1:8000/validation/emotions/${this.newEmotion.id}/`
-        : 'http://127.0.0.1:8000/validation/emotions/';
+        ? `${apiUrl}/validation/emotions/${this.newEmotion.id}/`
+        : `${apiUrl}/validation/emotions/`;
       const method = this.newEmotion.id ? 'PUT' : 'POST';
 
       fetch(url, {

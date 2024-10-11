@@ -135,7 +135,8 @@ export default {
       this.selectedComment = null;
     },
     fetchCategories() {
-      axios.get('http://127.0.0.1:8000/validation/categories/')
+      const apiUrl = process.env.VUE_APP_API_URL;
+      axios.get(`${apiUrl}/validation/categories/`)
         .then(response => {
           this.categories = response.data;
         })
@@ -148,7 +149,8 @@ export default {
         console.error('Error: selectedComment is not properly set.');
         return;
       }
-      axios.patch('http://127.0.0.1:8000/validation/update/', {
+      const apiUrl = process.env.VUE_APP_API_URL;
+      axios.patch(`${apiUrl}/validation/update/`, {
         id_commentaire: this.selectedComment.id_commentaire,
         descripteur: updatedDescriptor
       })
@@ -162,7 +164,8 @@ export default {
     },
     deleteComment(commentId) {
       if (confirm("Are you sure you want to delete this comment?")) {
-        axios.delete('http://127.0.0.1:8000/validation/comments/delete/', {
+        const apiUrl = process.env.VUE_APP_API_URL;
+        axios.delete(`${apiUrl}/validation/comments/delete/`, {
           data: { id_commentaire: commentId }
         })
         .then(() => {
@@ -191,7 +194,8 @@ export default {
       return category ? category.title : 'Unknown Category';
     },
     fetchDescripteurDetails() {
-      axios.get('http://127.0.0.1:8000/validation/emotions/')
+      const apiUrl = process.env.VUE_APP_API_URL;
+      axios.get(`${apiUrl}/validation/emotions/`)
         .then(response => {
           this.etiquettes = response.data;
           this.compareDescripteurWithEtiquettes();

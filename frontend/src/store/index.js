@@ -31,7 +31,8 @@ export default createStore({
     },
     async fetchEtiquettes({ commit }) {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/validation/etiquettes/');
+        const apiUrl = process.env.VUE_APP_API_URL;
+        const response = await axios.get(`${apiUrl}/validation/etiquettes/`);
         commit('SET_ETIQUETTES', response.data);
       } catch (error) {
         console.error('Error fetching etiquettes:', error.response ? error.response.data : error.message);
@@ -39,7 +40,8 @@ export default createStore({
     },
     async fetchMots({ commit }) {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/validation/mots/');
+        const apiUrl = process.env.VUE_APP_API_URL;
+        const response = await axios.get(`${apiUrl}validation/mots/`);
         commit('SET_MOTS', response.data);
       } catch (error) {
         console.error('Error fetching mots:', error.response ? error.response.data : error.message);
@@ -47,7 +49,8 @@ export default createStore({
     },
     async fetchLanguages({ commit }) { 
       try {
-        const response = await axios.get('http://127.0.0.1:8000/validation/languages/');
+        const apiUrl = process.env.VUE_APP_API_URL;
+        const response = await axios.get(`${apiUrl}/validation/languages/`);
         commit('SET_LANGUAGES', response.data);
       } catch (error) {
         console.error('Error fetching languages:', error.response ? error.response.data : error.message);

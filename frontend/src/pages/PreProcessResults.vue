@@ -36,7 +36,8 @@ onMounted(async () => {
   startProgress();
 
   try {
-    const response = await axios.post('http://127.0.0.1:8000/validation/deep_clean_text/', { criteria: selectedCriteria });
+    const apiUrl = process.env.VUE_APP_API_URL;
+    const response = await axios.post(`${apiUrl}/validation/deep_clean_text/`, { criteria: selectedCriteria });
     console.log('Response Data:', response.data);
 
     clearInterval(progressInterval); 

@@ -116,7 +116,8 @@ export default {
         };
 
         try {
-          const response = await axios.post('http://127.0.0.1:8000/validation/etqchoisie/', payload, {
+          const apiUrl = process.env.VUE_APP_API_URL;
+          const response = await axios.post(`${apiUrl}/validation/etqchoisie/`, payload, {
             headers: {
               'Content-Type': 'application/json',
             },

@@ -87,7 +87,8 @@ export default {
   },
   deleteVideo(videoId) {
     if (confirm("Are you sure you want to delete this video?")) {
-      axios.delete('http://127.0.0.1:8000/validation/videos/delete/', {
+      const apiUrl = process.env.VUE_APP_API_URL;
+      axios.delete(`${apiUrl}/validation/videos/delete/`, {
         data: { id_video: videoId }
       })
       .then(() => {

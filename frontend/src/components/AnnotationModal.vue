@@ -78,7 +78,8 @@ export default {
       this.$emit('close');
     },
     fetchEmotions() {
-      axios.get('http://127.0.0.1:8000/validation/emotions/')
+      const apiUrl = process.env.VUE_APP_API_URL;
+      axios.get(`${apiUrl}/validation/emotions/`)
         .then(response => {
           this.allEmotions = response.data;
         })
@@ -124,7 +125,7 @@ export default {
       console.log("Selected Etiquettes before sending:", allSelectedEtiquettes);
 
       // Send selected etiquettes to backend
-      axios.patch('http://127.0.0.1:8000/validation/update/', {
+      axios.patch(`${apiUrl}/validation/update/`, {
         id_commentaire: this.selectedComment.id_commentaire, // Backend expects id_commentaire
         descripteur: allSelectedEtiquettes // Backend expects descripteur
       })

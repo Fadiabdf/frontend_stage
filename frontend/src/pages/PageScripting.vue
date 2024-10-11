@@ -52,7 +52,8 @@ export default {
     async handleChoose() {
       if (this.selectedOption) {
         try {
-          const response = await axios.post('http://127.0.0.1:8000/validation/scriptchoisi/', {
+          const apiUrl = process.env.VUE_APP_API_URL;
+          const response = await axios.post(`${apiUrl}/validation/scriptchoisi/`, {
             selectedOption: this.selectedOption
           });
           this.frequences = response.data.frequences;

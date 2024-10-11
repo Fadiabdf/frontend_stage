@@ -72,9 +72,10 @@ export default {
   methods: {
     async fetchVideos() {
       if (!this.selectedCorpus) return;
-
+      const apiUrl = process.env.VUE_APP_API_URL;
       try {
-        const response = await axios.get('http://127.0.0.1:8000/validation/get_videos_by_corpus/', {
+        
+        const response = await axios.get(`${apiUrl}/validation/get_videos_by_corpus/`, {
           params: { corpus_id: this.selectedCorpus }
         });
         this.filteredVideos = response.data;  // Update the list of videos
@@ -83,7 +84,8 @@ export default {
       }
     },
     fetchCorpora() {
-      axios.get('http://127.0.0.1:8000/validation/corpus/')
+      const apiUrl = process.env.VUE_APP_API_URL;
+      axios.get(`${apiUrl}/validation/corpus/`)
         .then(response => {
           this.corpusList = response.data;
           console.log("Corpora List:", this.corpusList);
@@ -114,8 +116,9 @@ export default {
       this.selectedComments = [];
     },
     async handleFilter() {
+      const apiUrl = process.env.VUE_APP_API_URL;
       try {
-        const response = await axios.post('http://127.0.0.1:8000/validation/base_clean_text/');
+        const response = await axios.post(`${apiUrl}/validation/base_clean_text/`);
         console.log('Response:', response.data);
         this.filterCompleted = true; 
       } catch (error) {

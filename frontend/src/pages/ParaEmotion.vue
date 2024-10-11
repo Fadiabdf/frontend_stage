@@ -35,21 +35,24 @@
     },
     methods: {
       fetchEmotions() {
-        fetch('http://127.0.0.1:8000/validation/emotions/')
+        const apiUrl = process.env.VUE_APP_API_URL;
+        fetch(`${apiUrl}/validation/emotions/`)
           .then(response => response.json())
           .then(data => {
             this.emotions = data;
           });
       },
       addEmotion() {
-        fetch('http://127.0.0.1:8000/validation/emotions/', {
+        const apiUrl = process.env.VUE_APP_API_URL;
+        fetch(`${apiUrl}/validation/emotions/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(this.newEmotion)
         }).then(() => this.fetchEmotions());
       },
       updateEmotion() {
-        fetch('http://127.0.0.1:8000/validation/emotions/', {
+        const apiUrl = process.env.VUE_APP_API_URL;
+        fetch(`${apiUrl}/validation/emotions/`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(this.newEmotion)
@@ -59,7 +62,8 @@
         });
       },
       deleteEmotion() {
-        fetch('http://127.0.0.1:8000/validation/emotions/', {
+        const apiUrl = process.env.VUE_APP_API_URL;
+        fetch(`${apiUrl}/validation/emotions/`, {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: this.deleteEmotionId })

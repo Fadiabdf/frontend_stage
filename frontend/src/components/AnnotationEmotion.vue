@@ -75,8 +75,9 @@ export default {
   },
   methods: {
     async fetchComments() {
+      const apiUrl = process.env.VUE_APP_API_URL;
       try {
-        const response = await axios.get('http://127.0.0.1:8000/validation/get_comments/');
+        const response = await axios.get(`${apiUrl}/validation/get_comments/`);
         this.comments = response.data.map(comment => ({
           ...comment,
           showUpdateButton: false // Add property to track button visibility
@@ -86,17 +87,19 @@ export default {
       }
     },
     async fetchEmotions() {
+      const apiUrl = process.env.VUE_APP_API_URL;
       try {
-        const response = await axios.get('http://127.0.0.1:8000/validation/emotions/');
+        const response = await axios.get(`${apiUrl}/validation/emotions/`);
         this.emotions = response.data;
       } catch (error) {
         console.error('Error fetching emotions:', error);
       }
     },
     async updateEmotion(commentId) {
+      const apiUrl = process.env.VUE_APP_API_URL;
       try {
         const comment = this.comments.find(c => c.id_commentaire === commentId);
-        const response = await axios.post('http://127.0.0.1:8000/validation/update_emotion/', {
+        const response = await axios.post(`${apiUrl}/validation/update_emotion/`, {
           comment_id: commentId,
           annotation_commentaire: comment.annotation_commentaire,
           emotion: comment.emotion

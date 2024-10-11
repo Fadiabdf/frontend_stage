@@ -25,7 +25,8 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/validation/freq_scripts/');
+        const apiUrl = process.env.VUE_APP_API_URL;
+        const response = await axios.get(`${apiUrl}/validation/freq_scripts/`);
         if (Array.isArray(response.data) ) {
           this.frequencies = response.data;
         } else {

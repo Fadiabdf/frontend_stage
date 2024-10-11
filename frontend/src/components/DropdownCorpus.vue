@@ -49,7 +49,8 @@ export default {
         },
         async fetchItems() {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/validation/listecorpus/');
+                const apiUrl = process.env.VUE_APP_API_URL;
+                const response = await axios.get(`${apiUrl}/validation/listecorpus/`);
                 this.items = response.data; 
             } catch (error) {
                 console.error('Error fetching items:', error);

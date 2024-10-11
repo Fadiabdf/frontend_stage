@@ -18,7 +18,8 @@ export default {
 },
     methods: {
         handleClick() {
-            axios.post('http://127.0.0.1:8000/validation/corpuschoisi/', {
+            const apiUrl = process.env.VUE_APP_API_URL;
+            axios.post(`${apiUrl}/validation/corpuschoisi/`, {
                 selectedOption: this.selectedOption,
             }).catch(error => {
                 console.error('Error sending option to backend:', error);

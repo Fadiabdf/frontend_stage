@@ -152,7 +152,7 @@ export default {
     },
     fetchEmotions() {
       const apiUrl = process.env.VUE_APP_API_URL;
-      fetch('/validation/emotions/')
+      fetch(`${apiUrl}/validation/emotions/`)
         .then(response => response.json())
         .then(data => {
           console.log("Fetched emotions data:", data);
@@ -178,7 +178,7 @@ export default {
     },
     saveCategory() {
       const apiUrl = process.env.VUE_APP_API_URL;
-      fetch('https://a549-105-98-255-53.ngrok-free.app/validation/categories/', {
+      fetch(`${apiUrl}/validation/categories/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: this.newCategory.name, multiple_choice: this.newCategory.multiple_choice })
@@ -193,7 +193,7 @@ export default {
     deleteCategory(categoryId) {
       if (confirm('Are you sure you want to delete this category?')) {
         const apiUrl = process.env.VUE_APP_API_URL;
-        fetch(`https://a549-105-98-255-53.ngrok-free.app/validation/categories/${categoryId}/`, {
+        fetch(`${apiUrl}/validation/categories/${categoryId}/`, {
           method: 'DELETE',
         })
         .then(response => {

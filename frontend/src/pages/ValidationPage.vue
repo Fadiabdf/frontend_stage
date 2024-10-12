@@ -153,7 +153,7 @@ export default {
         id_video: videoId,
         corpus: corpusId,
       };
-
+      const apiUrl = process.env.VUE_APP_API_URL;
       axios.put(`${apiUrl}/validation/update_corpus/${corpusId}/`, selectedVideoData)
         .then(response => {
           console.log('Video corpus updated successfully:', response.data);

@@ -96,7 +96,7 @@ export default {
       this.loading = true;
       try {
         if (this.selectedCombinations.length > 0) {
-          const apiUrl = process.env.VUE_APP_API_URL;
+          const apiUrl = "http://localhost:8080";
           const response = await axios.post(`${apiUrl}/validation/process-combinations/`, {
             selectedCombinations: this.selectedCombinations
           });

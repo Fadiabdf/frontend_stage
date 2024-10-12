@@ -140,7 +140,7 @@ export default {
       this.dropdownIndex = this.dropdownIndex === id ? null : id;
     },
     fetchCategories() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/categories/`)
         .then(response => response.json())
         .then(data => {
@@ -151,7 +151,7 @@ export default {
         .catch(error => console.error('Error fetching categories:', error));
     },
     fetchEmotions() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/emotions/`)
         .then(response => response.json())
         .then(data => {
@@ -177,7 +177,7 @@ export default {
       this.showCategoryModal = true;
     },
     saveCategory() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/categories/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -192,7 +192,7 @@ export default {
     },
     deleteCategory(categoryId) {
       if (confirm('Are you sure you want to delete this category?')) {
-        const apiUrl = process.env.VUE_APP_API_URL;
+        const apiUrl = "http://localhost:8080";
         fetch(`${apiUrl}/validation/categories/${categoryId}/`, {
           method: 'DELETE',
         })
@@ -210,7 +210,7 @@ export default {
     },
     deleteEmotion(emotionId) {
   if (confirm('Are you sure you want to delete this emotion?')) {
-    const apiUrl = process.env.VUE_APP_API_URL;
+    const apiUrl = "http://localhost:8080";
     fetch(`${apiUrl}/validation/emotions/${emotionId}/`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -229,7 +229,7 @@ export default {
 }
 ,
     saveEmotion() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       const url = this.newEmotion.id 
         ? `${apiUrl}/validation/emotions/${this.newEmotion.id}/`
         : `${apiUrl}/validation/emotions/`;

@@ -49,7 +49,7 @@ export default {
         },
         async fetchItems() {
             try {
-                const apiUrl = process.env.VUE_APP_API_URL;
+                const apiUrl = "http://localhost:8080";
                 const response = await axios.get(`${apiUrl}/validation/listecorpus/`);
                 this.items = response.data; 
             } catch (error) {

@@ -30,7 +30,7 @@ export default {
 
     const handleSearch = async (searchQuery) => {
       try {
-        const apiUrl = process.env.VUE_APP_API_URL;
+        const apiUrl = "http://localhost:8080";
         const response = await axios.post(`${apiUrl}/validation/search/`, {
           keyword: searchQuery,
         }, {

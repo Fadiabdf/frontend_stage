@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     fetchVideos() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       axios.get(`${apiUrl}/validation/`)
         .then(response => {
           if (Array.isArray(response.data)) {
@@ -89,7 +89,7 @@ export default {
         });
     },
     fetchCorpusList() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       axios.get(`${apiUrl}/validation/corpus/`,{ timeout: 60000 })
         .then(response => {
           if (Array.isArray(response.data)) {
@@ -124,7 +124,7 @@ export default {
         commentaires: video.commentaires,
         corpus: video.corpus // Ensure corpus is included
       }));
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       axios.post(`${apiUrl}/validation/submit_validation/`, {
         action: 'validate',
         video_data: JSON.stringify(selectedVideoData),
@@ -153,7 +153,7 @@ export default {
         id_video: videoId,
         corpus: corpusId,
       };
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       axios.put(`${apiUrl}/validation/update_corpus/${corpusId}/`, selectedVideoData)
         .then(response => {
           console.log('Video corpus updated successfully:', response.data);

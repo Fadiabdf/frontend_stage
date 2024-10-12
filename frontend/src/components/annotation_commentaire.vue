@@ -72,7 +72,7 @@ export default {
   methods: {
     async fetchVideos() {
       if (!this.selectedCorpus) return;
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       try {
         
         const response = await axios.get(`${apiUrl}/validation/get_videos_by_corpus/`, {
@@ -84,7 +84,7 @@ export default {
       }
     },
     fetchCorpora() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       axios.get(`${apiUrl}/validation/corpus/`)
         .then(response => {
           this.corpusList = response.data;
@@ -116,7 +116,7 @@ export default {
       this.selectedComments = [];
     },
     async handleFilter() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       try {
         const response = await axios.post(`${apiUrl}/validation/base_clean_text/`);
         console.log('Response:', response.data);

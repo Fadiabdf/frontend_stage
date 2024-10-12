@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     fetchEmotions() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/emotions/`)
         .then(response => response.json())
         .then(data => {
@@ -46,7 +46,7 @@ export default {
         });
     },
     addEmotion() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/emotions/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -57,7 +57,7 @@ export default {
       });
     },
     updateEmotion() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/emotions/`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -68,7 +68,7 @@ export default {
       });
     },
     deleteEmotion(emotionId) {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/emotions/`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },

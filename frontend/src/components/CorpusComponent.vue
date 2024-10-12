@@ -103,7 +103,7 @@ export default {
   },
   methods: {
     async fetchCategories() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/categories/`)
         .then(response => response.json())
         .then(data => {
@@ -114,7 +114,7 @@ export default {
         .catch(error => console.error('Error fetching categories:', error));
     },
     fetchCorpus() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/corpus/`)
         .then(response => response.json())
         .then(data => {
@@ -131,7 +131,7 @@ export default {
       console.log('showCorpusModal:', this.showCorpusModal);
     },
     saveCorpus() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       const method = this.newCorpus.id ? 'PUT' : 'POST';
       const url = this.newCorpus.id
         ? `${apiUrl}/validation/corpus/${this.newCorpus.id}/`
@@ -171,7 +171,7 @@ export default {
       this.fetchCorpus();
     },
     deleteCorpus(corpusId) {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       fetch(`${apiUrl}/validation/corpus/${corpusId}/`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }

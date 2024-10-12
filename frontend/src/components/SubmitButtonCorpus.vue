@@ -18,7 +18,7 @@ export default {
 },
     methods: {
         handleClick() {
-            const apiUrl = process.env.VUE_APP_API_URL;
+            const apiUrl = "http://localhost:8080";
             axios.post(`${apiUrl}/validation/corpuschoisi/`, {
                 selectedOption: this.selectedOption,
             }).catch(error => {

@@ -138,7 +138,7 @@ export default {
         this.loading = true; 
 
         try {
-          const apiUrl = process.env.VUE_APP_API_URL;
+          const apiUrl = "http://localhost:8080";
           const response = await axios.post(`${apiUrl}/validation/motchoisie/`, data, {
             headers: {
               'Content-Type': 'application/json',
@@ -171,7 +171,7 @@ export default {
     async downloadExcelFile() {
       this.loading2 = true ; 
       try {
-        const apiUrl = process.env.VUE_APP_API_URL;
+        const apiUrl = "http://localhost:8080";
         const response = await axios.get(`${apiUrl}/validation/download_excel/`, {
           responseType: 'blob',  
         });

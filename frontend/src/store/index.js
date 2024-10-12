@@ -31,7 +31,7 @@ export default createStore({
     },
     async fetchEtiquettes({ commit }) {
       try {
-        const apiUrl = process.env.VUE_APP_API_URL;
+        const apiUrl = "http://localhost:8080";
         const response = await axios.get(`${apiUrl}/validation/etiquettes/`);
         commit('SET_ETIQUETTES', response.data);
       } catch (error) {
@@ -40,7 +40,7 @@ export default createStore({
     },
     async fetchMots({ commit }) {
       try {
-        const apiUrl = process.env.VUE_APP_API_URL;
+        const apiUrl = "http://localhost:8080";
         const response = await axios.get(`${apiUrl}validation/mots/`);
         commit('SET_MOTS', response.data);
       } catch (error) {
@@ -49,7 +49,7 @@ export default createStore({
     },
     async fetchLanguages({ commit }) { 
       try {
-        const apiUrl = process.env.VUE_APP_API_URL;
+        const apiUrl = "http://localhost:8080";
         const response = await axios.get(`${apiUrl}/validation/languages/`);
         commit('SET_LANGUAGES', response.data);
       } catch (error) {

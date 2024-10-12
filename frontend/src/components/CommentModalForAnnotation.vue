@@ -135,7 +135,7 @@ export default {
       this.selectedComment = null;
     },
     fetchCategories() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       axios.get(`${apiUrl}/validation/categories/`)
         .then(response => {
           this.categories = response.data;
@@ -149,7 +149,7 @@ export default {
         console.error('Error: selectedComment is not properly set.');
         return;
       }
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       axios.patch(`${apiUrl}/validation/update/`, {
         id_commentaire: this.selectedComment.id_commentaire,
         descripteur: updatedDescriptor
@@ -164,7 +164,7 @@ export default {
     },
     deleteComment(commentId) {
       if (confirm("Are you sure you want to delete this comment?")) {
-        const apiUrl = process.env.VUE_APP_API_URL;
+        const apiUrl = "http://localhost:8080";
         axios.delete(`${apiUrl}/validation/comments/delete/`, {
           data: { id_commentaire: commentId }
         })
@@ -194,7 +194,7 @@ export default {
       return category ? category.title : 'Unknown Category';
     },
     fetchDescripteurDetails() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       axios.get(`${apiUrl}/validation/emotions/`)
         .then(response => {
           this.etiquettes = response.data;

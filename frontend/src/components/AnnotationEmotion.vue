@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     async fetchComments() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       try {
         const response = await axios.get(`${apiUrl}/validation/get_comments/`);
         this.comments = response.data.map(comment => ({
@@ -87,7 +87,7 @@ export default {
       }
     },
     async fetchEmotions() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       try {
         const response = await axios.get(`${apiUrl}/validation/emotions/`);
         this.emotions = response.data;
@@ -96,7 +96,7 @@ export default {
       }
     },
     async updateEmotion(commentId) {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = "http://localhost:8080";
       try {
         const comment = this.comments.find(c => c.id_commentaire === commentId);
         const response = await axios.post(`${apiUrl}/validation/update_emotion/`, {

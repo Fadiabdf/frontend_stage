@@ -82,7 +82,7 @@ export default {
     },
     deleteVideo(videoId) {
       if (confirm("Are you sure you want to delete this video?")) {
-        const apiUrl = process.env.VUE_APP_API_URL;
+        const apiUrl = "http://localhost:8080";
         axios.delete(`${apiUrl}/videos/delete/`, {
           data: { id_video: videoId }
         })

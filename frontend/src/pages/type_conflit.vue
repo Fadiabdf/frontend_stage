@@ -5,12 +5,12 @@
           <img src="../assets/icons/resultats.png" alt="Header icon" class="w-8 h-8" />
         </div>
         <p class="text-2xl ml-0 font-OPTIAuvantGothic-Bold text-blue-clr t-shadow2">
-          Calcul des frequences et pourcentages des types de conflit
+          Calcul des frequences et pourcentages des types de conflit (étiquettes)
         </p>
       </div>
   <div class="parent-container">
-    <h1 class="font-bold">Selectionnez des types de conflit</h1>
-    <p class="mt-2"><em>Vous pouvez sélectionner plusieurs types à la fois </em></p>
+    <h1 class="font-bold">Selectionnez des étiquettes</h1>
+    <p class="mt-2"><em>Vous pouvez sélectionner plusieurs étiquettes à la fois </em></p>
     
     <div class="flex justify-center items-center mt-4 mb-[50px] space-x-4">
       <div class="relative inline-block text-left">
@@ -96,8 +96,7 @@ export default {
       this.loading = true;
       try {
         if (this.selectedCombinations.length > 0) {
-          const apiUrl = "http://localhost:8080";
-          const response = await axios.post(`${apiUrl}/validation/process-combinations/`, {
+          const response = await axios.post('http://localhost:8080/validation/process-combinations/', {
             selectedCombinations: this.selectedCombinations
           });
 

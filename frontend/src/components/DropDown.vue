@@ -32,7 +32,7 @@ export default {
     return {
       isOpen: false,
       buttonText: "Le menu des statistiques",
-      items: ["Associations entre étiquettes", "Associations entre mots", "Classification des conflits par types", "Frequence et pourcentage de conflits par langues"],
+      items: ["Associations entre étiquettes", "Associations entre mots", "Frequence et pourcentage des étiquettes", "Frequence et pourcentage de conflits par langues"],
     };
   },
   methods: {

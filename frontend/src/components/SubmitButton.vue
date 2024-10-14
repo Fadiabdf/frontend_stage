@@ -32,7 +32,7 @@ export default {
           correlationValue = 2;
           this.router.push('/correlation-mots');
           break;
-        case "Classification des conflits par types":
+        case "Frequence et pourcentage des étiquettes":
           correlationValue = 3;
           this.router.push('/type');
           break;
@@ -69,6 +69,5 @@ button {
 
 button:hover {
   color: #57D7EC;
-  /* Change text color to blue on hover */
 }
 </style>

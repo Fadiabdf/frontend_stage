@@ -57,7 +57,7 @@ export default {
             selectedY: this.$route.query.selectedY ? this.$route.query.selectedY.split(', ') : [],
             mots: JSON.parse(this.$route.query.mots || '[]'),
             mots_khi2 : JSON.parse(this.$route.query.mots_khi2 || '[]'),
-            khi2_theoriques : JSON.parse(this.$route.query.khi2_theoriques)
+            khi2_theoriques: this.$route.query.khi2_theoriques || null
         };
     },
     computed: {

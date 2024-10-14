@@ -12,7 +12,6 @@
 
     <div class="container">
       <h1>{{ title }}</h1>
-      <!-- Pass both frequences and labels to LanguageChart -->
       <LanguageChart :msg="chartTitle" :frequences="frequences" :labels="labels" />
       <p class="details-text mt-[40px]">Pour plus de détails, veuillez choisir un script à étudier</p>
 
@@ -52,8 +51,7 @@ export default {
     async handleChoose() {
       if (this.selectedOption) {
         try {
-          const apiUrl = "http://localhost:8080";
-          const response = await axios.post(`${apiUrl}/validation/scriptchoisi/`, {
+          const response = await axios.post('http://localhost:8080/validation/scriptchoisi/', {
             selectedOption: this.selectedOption
           });
           this.frequences = response.data.frequences;

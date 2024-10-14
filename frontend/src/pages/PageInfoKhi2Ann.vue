@@ -59,7 +59,7 @@ export default {
       selectedY: this.$route.query.selectedY ? this.$route.query.selectedY.split(', ') : [],
       descriptors: JSON.parse(this.$route.query.descriptors || '[]'),
       descriptors_khi2 : JSON.parse(this.$route.query.descriptors_khi2 || '[]'),
-      khi2_theoriques : JSON.parse(this.$route.query.khi2_theoriques || '[]')
+      khi2_theoriques: this.$route.query.khi2_theoriques || null
     };
   },
   computed: {
@@ -70,6 +70,7 @@ export default {
     }
   },
   mounted() {
+    console.log("le khi2",this.khi2_theoriques);
   }
 };
 </script>

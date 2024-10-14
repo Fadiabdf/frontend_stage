@@ -45,13 +45,11 @@ export default {
           { label: "Français", value: "FR" },
           { label: "Arabizie", value: "AZL" },
           { label: "Tamazight Latin", value: "TZL" },
-          { label: "Emojis", value: "EMT"}
         ],
         "Arabic Script": [
           { label: "Tamazight Abjadia", value: "TZA" },
           { label: "Dialecte arabe", value: "AZA" },
           { label: "Arabe standard moderne", value: "ARS" },
-          { label: "Emojis", value: "EMT"}
         ],
         "Mixed Script": [
           { label: "Anglais", value: "EN" },
@@ -61,7 +59,7 @@ export default {
           { label: "Tamazight Abjadia", value: "TZA" },
           { label: "Dialecte arabe", value: "AZA" },
           { label: "Arabe standard moderne", value: "ARS" },
-          { label: "Emojis", value: "EMT"}
+
         ]
       }
     };

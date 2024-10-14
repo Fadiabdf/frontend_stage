@@ -5,16 +5,15 @@
       <img src="../assets/icons/dividendes.png" alt="Header icon" class="w-9 h-9" />
     </div>
     <p class="text-2xl ml-0 font-OPTIAuvantGothic-Bold text-blue-clr t-shadow2">
-      Fréquences et pourcentages des types de conflit
+      Fréquences et pourcentages des types de conflit (étiquettes)
     </p>
   </div>
   <div class="table-container">
-    <!-- Remonter et agrandir le texte "Résultats des Sélections" -->
     <h1 class="font-bold mb-4 title">Résultats des Sélections</h1>
     <table class="min-w-full table-auto">
       <thead>
         <tr>
-          <th class="px-4 py-2 bg-header border-header border-2 text-white font-semibold rounded-tl-lg">Type</th>
+          <th class="px-4 py-2 bg-header border-header border-2 text-white font-semibold rounded-tl-lg">Étiquette(s)</th>
           <th class="px-4 py-2 bg-header border-header border-2 text-white font-semibold">Fréquence</th>
           <th class="px-4 py-2 bg-header border-header border-2 text-white font-semibold rounded-tr-lg">Pourcentage</th>
         </tr>

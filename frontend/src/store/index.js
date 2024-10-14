@@ -41,7 +41,7 @@ export default createStore({
     async fetchMots({ commit }) {
       try {
         const apiUrl = "http://localhost:8080";
-        const response = await axios.get(`${apiUrl}validation/mots/`);
+        const response = await axios.get(`${apiUrl}/validation/mots/`);
         commit('SET_MOTS', response.data);
       } catch (error) {
         console.error('Error fetching mots:', error.response ? error.response.data : error.message);
